@@ -5,10 +5,7 @@ const colorDisplay = document.getElementById("colorDisplay");
 const message = document.getElementById("message");
 const heading = document.getElementById("h1");
 const resetButton = document.getElementById("reset");
-const hardButton = document.getElementById("hard");
-const easyButton = document.getElementById("easy");
-const expertButton = document.getElementById("expert");
-const modeButtons = [hardButton, easyButton, expertButton];
+const modeButtons = document.querySelectorAll("[data-square-count]");
 
 let numberOfSquares = 6;
 let colors = generateRandomColors(numberOfSquares);
@@ -98,12 +95,8 @@ colorDisplay.textContent = pickedColor;
 setUpSquares();
 
 resetButton.addEventListener("click", resetGame);
-hardButton.addEventListener("click", function () {
-    setMode(6, hardButton);
-});
-easyButton.addEventListener("click", function () {
-    setMode(3, easyButton);
-});
-expertButton.addEventListener("click", function () {
-    setMode(12, expertButton);
-});
+for (let i = 0; i < modeButtons.length; i++) {
+    modeButtons[i].addEventListener("click", function () {
+        setMode(Number(this.dataset.squareCount), this);
+    });
+}
