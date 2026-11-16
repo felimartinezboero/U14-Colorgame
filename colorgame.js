@@ -7,8 +7,8 @@ const heading = document.getElementById("h1");
 const resetButton = document.getElementById("reset");
 const hardButton = document.getElementById("hard");
 const easyButton = document.getElementById("easy");
-const veryHardButton = document.getElementById("veryHard");
-const modeButtons = [hardButton, easyButton, veryHardButton];
+const expertButton = document.getElementById("expert");
+const modeButtons = [hardButton, easyButton, expertButton];
 
 let numberOfSquares = 6;
 let colors = generateRandomColors(numberOfSquares);
@@ -104,6 +104,6 @@ hardButton.addEventListener("click", function () {
 easyButton.addEventListener("click", function () {
     setMode(3, easyButton);
 });
-veryHardButton.addEventListener("click", function () {
-    setMode(12, veryHardButton);
+expertButton.addEventListener("click", function () {
+    setMode(12, expertButton);
 });
