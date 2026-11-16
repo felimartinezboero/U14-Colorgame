@@ -79,34 +79,48 @@ button:focus-visible {
 }
 
 .square-selected {
-  animation: incorrect-pick 0.45s ease;
+  animation: wrong-bounce 0.5s ease;
 }
 
 .square-correct {
-  animation: correct-pick 0.7s ease;
+  animation: correct-flash 0.8s ease;
 }
 
-@keyframes incorrect-pick {
+@keyframes wrong-bounce {
   0%, 100% {
     transform: translateX(0) scale(1);
+    box-shadow: 0 0 0 rgba(255, 99, 71, 0);
   }
-  25%, 75% {
-    transform: translateX(-8px) scale(0.96);
+  20% {
+    transform: translateX(-10px) scale(0.96) rotate(-2deg);
+    box-shadow: 0 0 16px rgba(255, 99, 71, 0.9);
   }
-  50% {
-    box-shadow: 0 0 0 4px rgba(255, 99, 71, 0.75);
-    transform: translateX(8px) scale(0.96);
+  40% {
+    transform: translateX(10px) scale(0.96) rotate(2deg);
+  }
+  60% {
+    transform: translateX(-6px) scale(0.97);
+  }
+  80% {
+    transform: translateX(6px) scale(0.98);
   }
 }
 
-@keyframes correct-pick {
+@keyframes correct-flash {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
   }
-  50% {
-    box-shadow: 0 0 28px 8px rgba(255, 255, 255, 0.75);
-    transform: scale(1.08);
+  30% {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.5), 0 0 24px rgba(144, 238, 144, 0.8);
+  }
+  60% {
+    transform: scale(0.98);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.2), 0 0 30px rgba(144, 238, 144, 0.9);
+  }
+  100% {
+    transform: scale(1.04);
   }
 }
 

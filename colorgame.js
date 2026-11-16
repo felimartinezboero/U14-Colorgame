@@ -7,7 +7,7 @@ const heading = document.getElementById("h1");
 const resetButton = document.getElementById("reset");
 const hardButton = document.getElementById("hard");
 const easyButton = document.getElementById("easy");
-const expertButton = document.getElementById("very hard");
+const expertButton = document.getElementById("expert");
 const modeButtons = [hardButton, easyButton, expertButton];
 
 let numberOfSquares = 6;
